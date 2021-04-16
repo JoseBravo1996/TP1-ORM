@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Restaurant.Persistence.Database\Restaurant.Persistence.Database.csproj" />
+    <ProjectReference Include="..\Restaurant.Service.EventHandlers\Restaurant.Service.EventHandlers.csproj" />
+    <ProjectReference Include="..\Restaurant.Services.Queries\Restaurant.Service.Queries.csproj" />
+  </ItemGroup>
+
+</Project>
