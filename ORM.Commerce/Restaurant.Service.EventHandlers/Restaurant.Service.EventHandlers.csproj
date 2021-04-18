@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Restaurant.Persistence.Database\Restaurant.Persistence.Database.csproj" />
+    <ProjectReference Include="..\Restaurant.Services.Queries\Restaurant.Service.Queries.csproj" />
   </ItemGroup>
 
 </Project>

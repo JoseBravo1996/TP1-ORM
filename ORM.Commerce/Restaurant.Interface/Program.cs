@@ -1,12 +1,32 @@
-﻿using System;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Restaurant.Persistence.Database;
+using System;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Restaurant.Interface
 {
-    class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var hostBuilder = CreateHostBuilder(args);
+
+            await hostBuilder.RunConsoleAsync();
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureServices((hostingContext, services) =>
+           {
+
+               services.AddMediatR(Assembly.Load("Restaurant.Service.EventHandlers"));
+
+               services.AddSingleton<IHostedService, ConsoleApp>();
+           });
     }
 }
+
